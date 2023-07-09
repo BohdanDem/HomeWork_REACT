@@ -12,12 +12,15 @@ export const PostContainer = () => {
             })
     },[]);
 
+
     return (
         <>
-            {posts.map((post, id) => {
-                return (<PostComponent
-                        key = {id}
-                        post = {post}/>
+            {posts.map((post) => {
+                return (
+                    <PostComponent
+                        key = {post.id}
+                        post = {post}
+                    />
                 );
             })}
         </>);

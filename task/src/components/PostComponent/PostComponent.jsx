@@ -1,20 +1,18 @@
 import styles from "./PostComponent.module.css"
-import { useState } from 'react';
+//import PostDetail from "../PostDetail/PostDetail";
+import {useState} from "react";
 
-const PostComponent = (props) => {
-    const { post } = props
+const PostComponent = ({post}) => {
+    const { id, title, body } = post
     const [show, setShow] = useState(false)
-
-    const postDetails = () => {
-        show ? setShow(false) : setShow(true)
-    };
 
     return (
         <div className={styles.post}>
-            <div>{post.id}</div>
-            <div>{post.title}</div>
-            <button onClick = {() => postDetails()}>Show Details</button>
-            <div>{show && post.body}</div>
+            <div>{id}</div>
+            <div>{title}</div>
+            <button onClick = {() => setShow(!show)}>Details</button>
+            {/*{show && <PostDetail post = {post}/>}*/}
+            {show && <div>{body}</div>}
         </div>
     )
 }
