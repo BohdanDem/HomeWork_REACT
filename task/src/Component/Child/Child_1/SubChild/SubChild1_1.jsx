@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 const SubChild11 = () => {
-    const SubChild22Context = useContext(SubChild22Context)
+    // const SubChild22Context = useContext(SubChild22Context)
 
     return (
         <div>
@@ -9,7 +9,7 @@ const SubChild11 = () => {
             <div><b>name:</b> Leanne Graham<br/>
                  <b>username:</b> Bret<br/>
                  <b>email:</b> Sincere@april.biz
-                 <b>new name:</b> {SubChild22Context.email}<br/>
+                 {/*<b>new name:</b> {SubChild22Context.email}<br/>*/}
             </div>
         </div>
     );
