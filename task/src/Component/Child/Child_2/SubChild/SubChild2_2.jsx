@@ -1,13 +1,12 @@
-import React, {createContext} from 'react';
+import React from 'react';
 
-export const SubChild22Context = createContext(null)
-const SubChild22 = ({NewName, NewUsername, NewEmail}) => {
+const SubChild22 = ({setNewName, setNewUsername, setNewEmail}) => {
     const name = 'Clementina DuBuque'
     const username = 'Moriah.Stanton'
     const email = 'Rey.Padberg@karina.biz'
-    NewName = name
-    NewUsername = username
-    NewEmail = email
+    setNewName(name)
+    setNewUsername(username)
+    setNewEmail(email)
 
     return (
         <div>
