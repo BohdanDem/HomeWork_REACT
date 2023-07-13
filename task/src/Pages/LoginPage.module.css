@@ -1,0 +1,29 @@
+.page {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    background-color: rgb(38, 121, 102);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    box-sizing: border-box;
+    width: 500px;
+    height: 400px;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.formGroup {
+    width: 80%;
+    font-size: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
