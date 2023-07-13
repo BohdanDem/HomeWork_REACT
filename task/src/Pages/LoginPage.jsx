@@ -9,12 +9,6 @@ const LoginPage = () => {
         website: ''
     })
 
-    const handleFormChange = (key, value) => {
-        setFormValue(prevState => ({
-            ...prevState, [key]: value
-        }))
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
         //console.log(formValue);
@@ -40,19 +34,19 @@ const LoginPage = () => {
                 <h3>Create new user</h3>
                 <div className={styles.formGroup}>
                     <label>Name</label>
-                    <input type = "text" onChange={(event) => handleFormChange('name', event.target.value)} value={formValue.name}/>
+                    <input type = "text" ref={'nameRef'}/>
                 </div>
                 <div className={styles.formGroup}>
                     <label>UserName</label>
-                    <input type = "text" onChange={(event) => handleFormChange('username', event.target.value)} value={formValue.username}/>
+                    <input type = "text" ref={'usernameRef'}/>
                 </div>
                 <div className={styles.formGroup}>
                     <label>Email</label>
-                    <input type = "email" onChange={(event) => handleFormChange('email', event.target.value)} value={formValue.email}/>
+                    <input type = "email" ref={'emailRef'}/>
                 </div>
                 <div className={styles.formGroup}>
                     <label>WebSite</label>
-                    <input type = "text" onChange={(event) => handleFormChange('website', event.target.value)} value={formValue.website}/>
+                    <input type = "text" ref={'websiteRef'}/>
                 </div>
                 <input type={"submit"} value={'Create new user'}/>
             </form>
