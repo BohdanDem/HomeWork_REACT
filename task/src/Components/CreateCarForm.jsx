@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import styles from './CarStyle.module.css'
 
-const CreateCar = () => {
+const CreateCarForm = () => {
 
     const brandRef = useRef(null)
     const priceRef = useRef(null)
@@ -47,4 +47,4 @@ const CreateCar = () => {
     );
 };
 
-export default CreateCar;
+export default CreateCarForm;

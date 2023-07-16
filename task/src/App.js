@@ -1,14 +1,13 @@
 import './App.css';
-import CreateCar from "./Cars/CreateCar";
-import DeleteCar from "./Cars/DeleteCar";
-import UpdateCar from "./Cars/UpdateCar";
+import CreateCarForm from "./Components/CreateCarForm";
+import CarsComponent from "./Components/Cars/CarsComponent";
 
 function App() {
     return (
         <>
-            <CreateCar/>
-            <DeleteCar/>
-            <UpdateCar/>
+            <CreateCarForm/>
+            <br/>
+            <CarsComponent/>
         </>
     );
 }
