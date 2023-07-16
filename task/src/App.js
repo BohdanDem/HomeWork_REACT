@@ -1,13 +1,18 @@
 import './App.css';
 import CreateCarForm from "./Components/CreateCarForm";
 import CarsComponent from "./Components/Cars/CarsComponent";
+import {useState} from "react";
 
 function App() {
+
+    const [ addCars, setAddCars ] = useState([]);
+    const [ updateCar, setUpdateCar ] = useState([]);
+
     return (
         <>
-            <CreateCarForm/>
+            <CreateCarForm setAddCars={setAddCars} updateCar={updateCar} setUpdateCar={setUpdateCar}/>
             <br/>
-            <CarsComponent/>
+            <CarsComponent addCars={addCars} setAddCars={setAddCars} setUpdateCar={setUpdateCar}/>
         </>
     );
 }

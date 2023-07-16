@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import CarComponent from "./CarComponent/CarComponent";
 
-const CarsComponent = () => {
+const CarsComponent = ({addCars, setAddCars, setUpdateCar}) => {
 
     const [ cars, setCars ] = useState([]);
 
@@ -11,13 +11,13 @@ const CarsComponent = () => {
             .then((cars) => {
                 setCars(cars);
             })
-    },[]);
+    },[addCars]);
 
     return (
         <>
             {cars.map((car) => {
                 return (
-                    <CarComponent key={car.id} car={car}/>
+                    <CarComponent key={car.id} car={car} setAddCars={setAddCars} setUpdateCar={setUpdateCar}/>
                 );
             })}
         </>
