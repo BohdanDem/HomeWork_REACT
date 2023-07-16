@@ -12,10 +12,10 @@ function App() {
 
     return (
     <>
-      <HappyUser.Provider value={{NewName, NewUsername, NewEmail}}>
+      <HappyUser.Provider value={{NewName, NewUsername, NewEmail, setNewName, setNewUsername, setNewEmail}}>
         <Child1/>
+        <Child2/>
       </HappyUser.Provider>
-      <Child2 setNewName={setNewName} setNewUsername={setNewUsername} setNewEmail={setNewEmail}/>
     </>
   );
 }
