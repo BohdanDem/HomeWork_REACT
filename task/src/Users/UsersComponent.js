@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import UserComponent from "./UserComponent/UserComponent";
 
-const Users = () => {
+const Users = ({addUser}) => {
 
     const [ users, setUsers ] = useState([]);
 
@@ -11,7 +11,7 @@ const Users = () => {
             .then((users) => {
                 setUsers(users);
             })
-    },[]);
+    },[addUser]);
 
     return (
         <>

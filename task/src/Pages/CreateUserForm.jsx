@@ -1,13 +1,13 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import styles from './CreateUserForm.module.css'
 import {useForm} from "react-hook-form";
 
-const CreateUserForm = () => {
+const CreateUserForm = ({setAddUser}) => {
 
     const { register, handleSubmit, reset, setValue} = useForm()
 
     const save = (car) => {
-        fetch('http://owu.linkpc.net/carsAPI/v1/cars', {
+        fetch('https://jsonplaceholder.typicode.com/users', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -17,7 +17,7 @@ const CreateUserForm = () => {
         })
             .then((response) => response.json())
             .then(() => {
-                //setAddCars(prev => !prev)
+                setAddUser(prev => !prev)
                 reset()
             });
     }
