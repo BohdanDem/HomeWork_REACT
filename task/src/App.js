@@ -5,12 +5,12 @@ import {useState} from "react";
 
 function App() {
 
-    const [ addUser, setAddUser ] = useState([]);
+    const [ users, setUsers ] = useState([]);
 
   return (
       <>
-        <CreateUserForm setAddUser={setAddUser}/>
-        <UsersComponent addUser={addUser}/>
+        <CreateUserForm setUsers={setUsers}/>
+        <UsersComponent users={users} setUsers={setUsers}/>
       </>
   );
 }

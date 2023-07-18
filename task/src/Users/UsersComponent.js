@@ -1,23 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import UserComponent from "./UserComponent/UserComponent";
+import {GetUsers} from "../Services/ApiServices";
 
-const Users = ({addUser}) => {
-
-    const [ users, setUsers ] = useState([]);
+const Users = ({users, setUsers}) => {
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
-            .then((users) => {
-                setUsers(users);
-            })
-    },[addUser]);
+        GetUsers.getUsers(setUsers)
+    },[]);
 
     return (
         <>
             {users.map((user) => {
                 return (
-                    <UserComponent user = {user}/>
+                    <UserComponent key={user.id} user = {user}/>
                 );
             })}
         </>

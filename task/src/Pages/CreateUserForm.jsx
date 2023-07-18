@@ -1,26 +1,15 @@
 import React from 'react';
 import styles from './CreateUserForm.module.css'
 import {useForm} from "react-hook-form";
+import {GetNewUsers} from "../Services/ApiServices";
 
-const CreateUserForm = ({setAddUser}) => {
+const CreateUserForm = ({setUsers}) => {
 
-    const { register, handleSubmit, reset, setValue} = useForm()
+    const { register, handleSubmit, reset} = useForm()
 
-    const save = (car) => {
-        fetch('https://jsonplaceholder.typicode.com/users', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(car)
-        })
-            .then((response) => response.json())
-            .then(() => {
-                setAddUser(prev => !prev)
-                reset()
-            });
-    }
+    const save = (user) => {
+        GetNewUsers.getNewUsers(user, setUsers, reset)
+    };
 
     return (
         <div className={styles.page}>
