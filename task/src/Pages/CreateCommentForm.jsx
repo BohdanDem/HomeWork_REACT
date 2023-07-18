@@ -14,6 +14,7 @@ const CreateCommentForm = ({setComments}) => {
     return (
         <div className={styles.page}>
             <form className={styles.form} onSubmit={handleSubmit(save)}>
+                <h3>Create new COMMENT</h3>
                 <div className={styles.formGroup}>
                     <label>Post Id</label>
                     <input type = "number" {...register('postId')}/>
