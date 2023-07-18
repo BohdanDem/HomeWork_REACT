@@ -1,57 +1,34 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './CreateCommentForm.module.css'
+import {useForm} from "react-hook-form";
+import {GetNewComments} from "../Services/ApiServices";
 
-const CreateCommentForm = () => {
-    const [formValue, setFormValue] = useState({
-        postId: '',
-        name: '',
-        email: '',
-        body: ''
-    })
+const CreateCommentForm = ({setComments}) => {
 
-    const handleFormChange = (key, value) => {
-        setFormValue(prevState => ({
-            ...prevState, [key]: value
-        }))
-    }
+    const { register, handleSubmit, reset} = useForm()
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        //console.log(formValue);
-        fetch('https://jsonplaceholder.typicode.com/comments', {
-            method: 'POST',
-            body: JSON.stringify({
-                postId: formValue.postId,
-                name: formValue.name,
-                email: formValue.email,
-                body: formValue.body
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-    }
+    const save = (comment) => {
+        GetNewComments.getNewComments(comment, setComments, reset)
+    };
 
     return (
         <div className={styles.page}>
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={handleSubmit(save)}>
                 <div className={styles.formGroup}>
                     <label>Post Id</label>
-                    <input type = "number" onChange={(event) => handleFormChange('postId', event.target.value)} value={formValue.postId}/>
+                    <input type = "number" {...register('postId')}/>
                 </div>
                 <div className={styles.formGroup}>
                     <label>Name</label>
-                    <input type = "text" onChange={(event) => handleFormChange('name', event.target.value)} value={formValue.name}/>
+                    <input type = "text" {...register('name')}/>
                 </div>
                 <div className={styles.formGroup}>
                     <label>Email</label>
-                    <input type = "email" onChange={(event) => handleFormChange('email', event.target.value)} value={formValue.email}/>
+                    <input type = "email" {...register('email')}/>
                 </div>
                 <div className={styles.formGroup}>
                     <label>Body</label>
-                    <input type = "text" onChange={(event) => handleFormChange('body', event.target.value)} value={formValue.body}/>
+                    <input type = "text" {...register('body')}/>
                 </div>
                 <input type={"submit"} value={'Create new comment'}/>
             </form>

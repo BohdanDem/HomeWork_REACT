@@ -1,9 +1,8 @@
 .page {
-    height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
     font-size: 22px;
-    background-color: rgb(17, 135, 135);
+    background-color: rgb(21, 91, 128);
 
     display: flex;
     justify-content: center;
@@ -17,6 +16,7 @@
     background-color: #f8f8f8;
     border-radius: 15px;
     padding: 40px;
+    margin: 20px;
 }
 
 .formGroup {
