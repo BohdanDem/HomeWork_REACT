@@ -1,16 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import CarComponent from "./CarComponent/CarComponent";
+import {GetCars} from "../../Services/ApiServices";
 
 const CarsComponent = ({addCars, setAddCars, setUpdateCar}) => {
 
     const [ cars, setCars ] = useState([]);
 
     useEffect(() => {
-        fetch('http://owu.linkpc.net/carsAPI/v1/cars')
-            .then((response) => response.json())
-            .then((cars) => {
-                setCars(cars);
-            })
+        GetCars.getCars(setCars)
     },[addCars]);
 
     return (

@@ -1,17 +1,13 @@
 import React from 'react';
 import styles from './CarComponent.module.css'
+import {DeleteCar} from "../../../Services/ApiServices";
 
 const CarComponent = ({car, setAddCars, setUpdateCar}) => {
 
     const { id, brand, price, year } = car
 
     const carDelete = () => {
-        fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${+car.id}`, {
-            method: 'DELETE',
-        })
-            .then(() => {
-                setAddCars(prev => !prev)
-            });
+        DeleteCar.deleteCar(car, setAddCars)
     }
 
     return (

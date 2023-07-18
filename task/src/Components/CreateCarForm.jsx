@@ -1,25 +1,14 @@
 import React, {useEffect} from 'react';
 import styles from './CarStyle.module.css'
 import {useForm} from "react-hook-form";
+import {SaveCar, UpdateCar} from "../Services/ApiServices";
 
 const CreateCarForm = ({setAddCars, updateCar, setUpdateCar}) => {
 
     const { register, handleSubmit, reset, setValue} = useForm()
 
     const save = (car) => {
-        fetch('http://owu.linkpc.net/carsAPI/v1/cars', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(car)
-        })
-            .then((response) => response.json())
-            .then(() => {
-                setAddCars(prev => !prev)
-                reset()
-            });
+        SaveCar.saveCar(car, setAddCars, reset)
     }
 
     useEffect(() => {
@@ -31,20 +20,7 @@ const CreateCarForm = ({setAddCars, updateCar, setUpdateCar}) => {
     }, [setValue, updateCar])
 
     const update = (car) => {
-        fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${updateCar.id}`, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(car)
-        })
-            .then((response) => response.json())
-            .then(() => {
-                setAddCars(prev => !prev)
-                setUpdateCar(null)
-                reset()
-            });
+        UpdateCar.updateCar(car, setAddCars, setUpdateCar, reset, updateCar)
     }
 
     return (
