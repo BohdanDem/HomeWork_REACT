@@ -21,3 +21,10 @@ export const GetComments = {
         setComments(response.data);
     }
 }
+
+export const GetPost = {
+    getPost: async (setPost, postId) => {
+        let response = await axios.get(baseURL + EndPoints.POSTS + postId)
+        setPost(response.data);
+    }
+}

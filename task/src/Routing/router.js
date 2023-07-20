@@ -4,6 +4,7 @@ import {Comments} from "../Components/Comments/Comments";
 import {Todos} from "../Components/Todos/Todos";
 import {Albums} from "../Components/Albums/Albums";
 import {AppRoutes} from "./AppRoutes";
+import Post from "../Components/Post/Post";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,12 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.COMMENTS,
                 element: <Comments/>,
+                children: [
+                    {
+                        path: AppRoutes.POST_ID,
+                        element: <Post/>
+                    }
+                ]
             },
         ]
     }
