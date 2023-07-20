@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import Comment from "./Comment/Comment";
 import {GetComments} from "../../Services/ApiServices";
-import {Outlet} from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
+import {AppRoutes} from "../../Routing/AppRoutes";
 
 export const Comments = () => {
     const [ comments, setComments ] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {GetComments.getComments(setComments)},[]);
+
+    const handleClick = (postId) => navigate(AppRoutes.COMMENTS + '/' + postId)
 
     return (
         <>
@@ -16,6 +20,7 @@ export const Comments = () => {
                 return (
                     <Comment
                         key = {comment.id}
+                        handleClick={() => handleClick(comment.postId)}
                         comment = {comment}
                     />
                 );
