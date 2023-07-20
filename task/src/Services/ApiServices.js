@@ -1,5 +1,5 @@
 import axios from "axios";
-import {baseURL, EndPoints} from "../Api/Endpoints";
+import {baseURL, EndPoints} from "../API/Endpoints";
 
 export const GetTodos = {
     getTodos: async (setTodos) => {

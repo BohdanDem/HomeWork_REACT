@@ -1,16 +1,11 @@
 import { useEffect, useState } from 'react';
 import Album from "./Album/Album";
+import {GetAlbums} from "../../Services/ApiServices";
 
 export const Albums = () => {
     const [ albums, setAlbums ] = useState([]);
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/albums')
-            .then((response) => response.json())
-            .then((albums) => {
-                setAlbums(albums);
-            })
-    },[]);
+    useEffect(() => {GetAlbums.getAlbums(setAlbums)},[]);
 
     return (
         <>
