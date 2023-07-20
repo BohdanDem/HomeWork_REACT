@@ -1,0 +1,8 @@
+.album{
+    border: 1px solid black;
+    background-color: honeydew;
+    border-radius: 5px;
+    margin: 10px;
+    width: 70%;
+    padding: 5px;
+}
