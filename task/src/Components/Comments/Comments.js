@@ -20,7 +20,7 @@ export const Comments = () => {
                 return (
                     <Comment
                         key = {comment.id}
-                        handleClick={() => handleClick(comment.postId)}
+                        handleClick={handleClick}
                         comment = {comment}
                     />
                 );

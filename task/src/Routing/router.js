@@ -12,6 +12,10 @@ export const router = createBrowserRouter([
         errorElement: <h2>Ops, wrong way</h2>,
         children: [
             {
+                path: AppRoutes.MAIN,
+                element: <h1>Welcome</h1>,
+            },
+            {
                 path: AppRoutes.TODOS,
                 element: <Todos/>,
             },
