@@ -2,7 +2,7 @@ import React from "react";
 import styles from './Car.module.css'
 class Car extends React.Component {
     constructor({car}) {
-        super({car});
+        super();
         this.state = {car}
     }
 

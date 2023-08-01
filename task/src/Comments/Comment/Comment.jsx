@@ -2,7 +2,7 @@ import React from "react";
 import styles from './Comment.module.css'
 class Comment extends React.Component {
     constructor({comment}) {
-        super({comment});
+        super();
         this.state = {comment}
     }
 
