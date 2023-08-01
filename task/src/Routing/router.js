@@ -1,6 +1,9 @@
 import {createBrowserRouter} from "react-router-dom";
 import AppLayout from "../AppLayout/AppLayout";
 import {AppRoutes} from "./AppRoutes";
+import Posts from "../Posts/Posts";
+import Comments from "../Comments/Comments";
+import Cars from "../Cars/Cars";
 
 export const router = createBrowserRouter([
     {
@@ -10,15 +13,15 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: AppRoutes.POSTS,
-                element: <h1>POSTS</h1>
+                element: <Posts/>
             },
             {
                 path: AppRoutes.COMMENTS,
-                element: <h1>COMMENTS</h1>
+                element: <Comments/>
             },
             {
                 path: AppRoutes.CARS,
-                element: <h1>CARS</h1>
+                element: <Cars/>
             }
         ]
     }
