@@ -4,6 +4,7 @@ import {AppRoutes} from "./AppRoutes";
 import TestUseMemo from "../Components/TestUseMemo/TestUseMemo";
 import UseCallback from "../Components/UseCallback/UseCallback";
 import Toggle from "../Components/Toggle/Toggle";
+import Fetch_UsersPostsComments from "../Components/Fetch_UsersPostsComments/Fetch_UsersPostsComments";
 
 export const router = createBrowserRouter([
     {
@@ -25,11 +26,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.USE_FETCH,
-                element: <h1>useFetch</h1>
+                element: <Fetch_UsersPostsComments/>
             },
             {
                 path: AppRoutes.USE_ARRAY,
-                element: <h1>useArray</h1>
+                element: <h1>useArray - is not implemented yet</h1>
             }
         ]
     }
