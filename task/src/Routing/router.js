@@ -1,6 +1,9 @@
 import {createBrowserRouter} from "react-router-dom";
 import AppLayout from "../AppLayout/AppLayout";
 import {AppRoutes} from "./AppRoutes";
+import TestUseMemo from "../Components/TestUseMemo/TestUseMemo";
+import UseCallback from "../Components/UseCallback/UseCallback";
+import Toggle from "../Components/Toggle/Toggle";
 
 export const router = createBrowserRouter([
     {
@@ -10,15 +13,15 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: AppRoutes.TEST_USE_MEMO,
-                element: <h1>TestUseMemo component</h1>
+                element: <TestUseMemo/>
             },
             {
                 path: AppRoutes.USE_CALLBACK,
-                element: <h1>useCallback</h1>
+                element: <UseCallback/>
             },
             {
                 path: AppRoutes.USE_TOGGLE,
-                element: <h1>useToggle</h1>
+                element: <Toggle/>
             },
             {
                 path: AppRoutes.USE_FETCH,
