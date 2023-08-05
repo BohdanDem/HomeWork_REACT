@@ -12,3 +12,27 @@
     background-color: #6e4821;
     color: white;
 }
+
+.user {
+    background-color: #98c9c9;
+    border-radius: 5px;
+    margin: 10px;
+    width: 70%;
+    padding: 5px;
+}
+
+.post {
+    background-color: #e1bb8e;
+    border-radius: 5px;
+    margin: 10px;
+    width: 70%;
+    padding: 5px;
+}
+
+.comment {
+    background-color: #82eeb2;
+    border-radius: 5px;
+    margin: 10px;
+    width: 70%;
+    padding: 5px;
+}
