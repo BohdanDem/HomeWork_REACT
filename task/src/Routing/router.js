@@ -2,9 +2,11 @@ import {createBrowserRouter} from "react-router-dom";
 import AppLayout from "../AppLayout/AppLayout";
 import {AppRoutes} from "./AppRoutes";
 import TestUseMemo from "../Components/TestUseMemo/TestUseMemo";
-import UseCallback from "../Components/UseCallback/UseCallback";
+import UseCallback from "../Components/TestUseCallback/UseCallback";
 import Toggle from "../Components/Toggle/Toggle";
 import Fetch_UsersPostsComments from "../Components/Fetch_UsersPostsComments/Fetch_UsersPostsComments";
+import TestUseArray from "../Components/TestUseArray/TestUseArray";
+import TestUseArrayUsers from "../Components/TestUseArrayUsers/TestUseArrayUsers";
 
 export const router = createBrowserRouter([
     {
@@ -30,7 +32,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.USE_ARRAY,
-                element: <h1>useArray - is not implemented yet</h1>
+                element: <TestUseArray/>
+            },
+            {
+                path: AppRoutes.USE_ARRAY_USERS,
+                element: <TestUseArrayUsers/>
             }
         ]
     }

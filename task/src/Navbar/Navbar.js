@@ -25,6 +25,10 @@ const Navbar = () => {
         {
             label: 'useArray',
             route: AppRoutes.USE_ARRAY
+        },
+        {
+            label: 'useArrayUsers',
+            route: AppRoutes.USE_ARRAY_USERS
         }
     ]
 
