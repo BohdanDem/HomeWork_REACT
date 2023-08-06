@@ -5,8 +5,7 @@ import {GetComments} from "../Services/ApiServices";
 const CommentsComponent = ({comments, setComments}) => {
 
     useEffect(() => {
-        GetComments.getComments(setComments)
-    },[]);
+        GetComments.getComments(setComments).then(r => )},[]);
 
     return (
         <>
