@@ -2,9 +2,8 @@ import axios from "axios";
 import {baseURL, Endpoints} from "../Api/Endpoints";
 
 export const GetComments = {
-    getComments: async (setComments) => {
-        let response = await axios.get(baseURL + Endpoints.USERS)
-        setComments(response.data);
+    getComments: async () => {
+        return await axios.get(baseURL + Endpoints.USERS)
     }
 }
 
