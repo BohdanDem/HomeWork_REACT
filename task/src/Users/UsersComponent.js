@@ -5,8 +5,7 @@ import {GetUsers} from "../Services/ApiServices";
 const Users = ({users, setUsers}) => {
 
     useEffect(() => {
-        GetUsers.getUsers(setUsers)
-    },[]);
+        GetUsers.getUsers().then(response => setUsers(response.data))},[setUsers]);
 
     return (
         <>

@@ -2,17 +2,14 @@ import axios from "axios";
 import {baseURL, Endpoints} from "../Api/Endpoints";
 
 export const GetUsers = {
-    getUsers: async (setUsers) => {
-        let response = await axios.get(baseURL + Endpoints.USERS)
-        setUsers(response.data);
+    getUsers: async () => {
+        return await axios.get(baseURL + Endpoints.USERS)
     }
 }
 
 export const GetNewUsers = {
-    getNewUsers: async (user, setUsers, reset) => {
-        let response = await axios.post(baseURL + Endpoints.USERS, user)
-        setUsers(prev => [...prev, response.data])
-        reset()
+    getNewUsers: async (user) => {
+        return await axios.post(baseURL + Endpoints.USERS, user)
     }
 }
 
