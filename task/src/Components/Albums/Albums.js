@@ -5,7 +5,7 @@ import {GetAlbums} from "../../Services/ApiServices";
 export const Albums = () => {
     const [ albums, setAlbums ] = useState([]);
 
-    useEffect(() => {GetAlbums.getAlbums(setAlbums)},[]);
+    useEffect(() => {GetAlbums.getAlbums().then(response => setAlbums(response.data))},[]);
 
     return (
         <>

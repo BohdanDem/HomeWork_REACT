@@ -5,7 +5,7 @@ import {GetTodos} from "../../Services/ApiServices";
 export const Todos = () => {
     const [ todos, setTodos ] = useState([]);
 
-    useEffect(() => {GetTodos.getTodos(setTodos)},[]);
+    useEffect(() => {GetTodos.getTodos().then(response => setTodos(response.data))},[]);
 
     return (
         <>

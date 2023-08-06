@@ -9,7 +9,7 @@ const Post = () => {
 
     const [ post, setPost ] = useState([]);
     useEffect(() => {
-        GetPost.getPost(setPost, postId)},[postId]);
+        GetPost.getPost(postId).then(response => setPost(response.data))},[postId]);
 
     const { userId, id, title, body } = post
     return (

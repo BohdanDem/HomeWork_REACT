@@ -8,7 +8,7 @@ export const Comments = () => {
     const [ comments, setComments ] = useState([]);
     const navigate = useNavigate()
 
-    useEffect(() => {GetComments.getComments(setComments)},[]);
+    useEffect(() => {GetComments.getComments().then(response => setComments(response.data))},[]);
 
     const handleClick = (postId) => navigate(AppRoutes.COMMENTS + '/' + postId)
 

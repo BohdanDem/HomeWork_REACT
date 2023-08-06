@@ -2,29 +2,25 @@ import axios from "axios";
 import {baseURL, EndPoints} from "../API/Endpoints";
 
 export const GetTodos = {
-    getTodos: async (setTodos) => {
-        let response = await axios.get(baseURL + EndPoints.TODOS)
-        setTodos(response.data);
+    getTodos: async () => {
+        return  await axios.get(baseURL + EndPoints.TODOS)
     }
 }
 
 export const GetAlbums = {
-    getAlbums: async (setAlbums) => {
-        let response = await axios.get(baseURL + EndPoints.ALBUMS)
-        setAlbums(response.data);
+    getAlbums: async () => {
+        return  await axios.get(baseURL + EndPoints.ALBUMS)
     }
 }
 
 export const GetComments = {
-    getComments: async (setComments) => {
-        let response = await axios.get(baseURL + EndPoints.COMMENTS)
-        setComments(response.data);
+    getComments: async () => {
+        return await axios.get(baseURL + EndPoints.COMMENTS)
     }
 }
 
 export const GetPost = {
-    getPost: async (setPost, postId) => {
-        let response = await axios.get(baseURL + EndPoints.POSTS + postId)
-        setPost(response.data);
+    getPost: async (postId) => {
+        return await axios.get(baseURL + EndPoints.POSTS + postId)
     }
 }
