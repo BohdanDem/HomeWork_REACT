@@ -8,7 +8,9 @@ const CreateCommentForm = ({setComments}) => {
     const { register, handleSubmit, reset} = useForm()
 
     const save = (comment) => {
-        GetNewComments.getNewComments(comment, setComments, reset)
+        GetNewComments.getNewComments(comment)
+            .then(response => setComments(prev => [...prev, response.data]))
+            reset()
     };
 
     return (

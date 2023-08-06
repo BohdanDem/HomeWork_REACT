@@ -8,9 +8,7 @@ export const GetComments = {
 }
 
 export const GetNewComments = {
-    getNewComments: async (comment, setComments, reset) => {
-        let response = await axios.post(baseURL + Endpoints.USERS, comment)
-        setComments(prev => [...prev, response.data])
-        reset()
+    getNewComments: async (comment) => {
+        return await axios.post(baseURL + Endpoints.USERS, comment)
     }
 }
