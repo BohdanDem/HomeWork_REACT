@@ -8,7 +8,7 @@ const CreateUserForm = ({setUsers}) => {
     const { register, handleSubmit, reset} = useForm()
 
     const save = (user) => {
-        GetNewUsers.getNewUsers(user, reset).then(response => setUsers(prev => [...prev, response.data]))
+        GetNewUsers.getNewUsers(user).then(response => setUsers(prev => [...prev, response.data]))
         reset()
     };
 
