@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import CarComponent from "./CarComponent/CarComponent";
-import {GetCars} from "../../Services/ApiServices";
+import {carService} from "../../Services/carService";
 
 const CarsComponent = ({addCars, setAddCars, setUpdateCar}) => {
 
     const [ cars, setCars ] = useState([]);
 
     useEffect(() => {
-        GetCars.getCars(setCars)
-    },[addCars]);
+        carService.getCars().then(response => setCars(response.data))
+    },[addCars])
 
     return (
         <>

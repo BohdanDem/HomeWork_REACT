@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './CarComponent.module.css'
-import {DeleteCar} from "../../../Services/ApiServices";
+import {carService} from "../../../Services/carService";
 
 const CarComponent = ({car, setAddCars, setUpdateCar}) => {
 
     const { id, brand, price, year } = car
 
     const carDelete = () => {
-        DeleteCar.deleteCar(car, setAddCars)
+        carService.deleteCar(car)
+        setAddCars(prev => !prev)
     }
 
     return (

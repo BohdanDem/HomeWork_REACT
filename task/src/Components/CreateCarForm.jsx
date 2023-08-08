@@ -1,14 +1,16 @@
 import React, {useEffect} from 'react';
 import styles from './CarStyle.module.css'
 import {useForm} from "react-hook-form";
-import {SaveCar, UpdateCar} from "../Services/ApiServices";
+import {carService} from "../Services/carService";
 
 const CreateCarForm = ({setAddCars, updateCar, setUpdateCar}) => {
 
     const { register, handleSubmit, reset, setValue} = useForm()
 
     const save = (car) => {
-        SaveCar.saveCar(car, setAddCars, reset)
+        carService.saveCar(car)
+        setAddCars(prev => !prev)
+        reset()
     }
 
     useEffect(() => {
@@ -20,7 +22,10 @@ const CreateCarForm = ({setAddCars, updateCar, setUpdateCar}) => {
     }, [setValue, updateCar])
 
     const update = (car) => {
-        UpdateCar.updateCar(car, setAddCars, setUpdateCar, reset, updateCar)
+        carService.updateCar(car, updateCar)
+        setAddCars(prev => !prev)
+        setUpdateCar(null)
+        reset()
     }
 
     return (
