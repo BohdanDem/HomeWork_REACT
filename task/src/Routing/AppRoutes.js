@@ -1,4 +1,4 @@
 export const AppRoutes = {
-    TODOS: '/todos',
+    CARS: '/cars',
     COMMENTS: '/comments',
 }

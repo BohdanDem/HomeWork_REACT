@@ -4,11 +4,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {router} from "./Routing/router";
 import {RouterProvider} from "react-router-dom";
+import {Provider} from "react-redux";
+import {store} from "./ReduxCore/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
-        <RouterProvider router={router} />
+        <Provider store={store}>
+            <RouterProvider router={router} />
+        </Provider>
     </>
 );
 

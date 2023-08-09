@@ -7,8 +7,8 @@ const Navbar = () => {
 
     const buttons = [
         {
-            label: 'TODOS',
-            route: AppRoutes.TODOS
+            label: 'CARS',
+            route: AppRoutes.CARS
         },
         {
             label: 'COMMENTS',
@@ -20,7 +20,7 @@ const Navbar = () => {
         <div style={{
             width: '100%',
             height: 100,
-            backgroundColor: 'lightcyan',
+            backgroundColor: 'darkblue',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-evenly'

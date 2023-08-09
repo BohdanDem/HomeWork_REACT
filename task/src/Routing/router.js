@@ -1,6 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import AppLayout from "../Components/AppLayout/AppLayout";
 import {AppRoutes} from "./AppRoutes";
+import Cars from "../Components/Cars/Cars";
 
 export const router = createBrowserRouter([
     {
@@ -9,8 +10,8 @@ export const router = createBrowserRouter([
         errorElement: <h2>Ops, wrong way</h2>,
         children: [
             {
-                path: AppRoutes.TODOS,
-                element: <h1>Todos</h1>,
+                path: AppRoutes.CARS,
+                element: <Cars/>,
             },
             {
                 path: AppRoutes.COMMENTS,
