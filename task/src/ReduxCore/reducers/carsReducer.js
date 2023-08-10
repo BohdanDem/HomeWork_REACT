@@ -5,7 +5,8 @@ const initialState = {
 
 export const CarsActionsTypes = {
     SET_CARS: 'SET_CARS',
-    SET_ERROR: 'SET_ERROR'
+    SET_ERROR: 'SET_ERROR',
+    DELETE_CAR: 'DELETE_CAR'
 }
 
 const carsReducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const carsReducer = (state = initialState, action) => {
             return{
                 ...state,
                 cars: action.payload,
+            }
+        case CarsActionsTypes.DELETE_CAR:
+            return {
+                ...state,
+                cars: state.cars.filter((car) => car.id !== action.payload)
             }
         case CarsActionsTypes.SET_ERROR:
             return{
