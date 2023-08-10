@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Car.module.css'
 import {useDispatch} from "react-redux";
-import {deleteCarThunk} from "../../../ReduxCore/actions/carActions";
+import {deleteCarThunk, updateCarFormThunk} from "../../../ReduxCore/actions/carActions";
 
 const Car = ({car}) => {
 
@@ -10,6 +10,10 @@ const Car = ({car}) => {
 
     const handleDeleteCar = (id) => dispatch(deleteCarThunk(id))
 
+    const handleUpdateCar = (car) => {
+        dispatch(updateCarFormThunk(car))
+    }
+
     return (
         <div className={styles.car}>
             <div>id: {id}</div>
@@ -17,6 +21,7 @@ const Car = ({car}) => {
             <div>price: {price}</div>
             <div>year: {year}</div>
             <button onClick={() => handleDeleteCar(id)}>Delete</button>
+            <button onClick={() => handleUpdateCar(car)}>Update</button>
         </div>
     );
 };

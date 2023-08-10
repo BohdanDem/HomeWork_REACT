@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './CarStyle.module.css'
 import {useForm} from "react-hook-form";
-import {useDispatch} from "react-redux";
-import {saveCarThunk} from "../../ReduxCore/actions/carActions";
+import {useDispatch, useSelector} from "react-redux";
+import {saveCarThunk, updateCarThunk} from "../../ReduxCore/actions/carActions";
 
 const CreateCarForm = () => {
 
@@ -15,20 +15,21 @@ const CreateCarForm = () => {
         reset()
     }
 
-    // const update = (car) => {
-    //     carService.updateCar(car, updateCar)
-    //     setAddCars(prev => !prev)
-    //     setUpdateCar(null)
-    //     reset()
-    // }
+    const updateCar = (car) => {
+        dispatch(updateCarThunk(car, updateCarForm))
+        reset()
+    }
 
-    // useEffect(() => {
-    //     if (updateCar) {
-    //         setValue('brand', updateCar.brand)
-    //         setValue('price', updateCar.price)
-    //         setValue('year', updateCar.year)
-    //     }
-    // }, [setValue, updateCar])
+    const updateCarForm = useSelector((store) => store.cars.updateCarForm)
+    console.log(updateCarForm);
+
+    useEffect(() => {
+        if (updateCarForm) {
+            setValue('brand', updateCarForm.brand)
+            setValue('price', updateCarForm.price)
+            setValue('year', updateCarForm.year)
+        }
+    }, [setValue, updateCarForm])
 
     return (
         <div className={styles.page}>
@@ -47,7 +48,7 @@ const CreateCarForm = () => {
                     <input type = "number" {...register('year')}/>
                 </div>
                 <button onClick={handleSubmit(saveCar)}>Create new car</button>
-                <button>Update car</button>
+                <button onClick={handleSubmit(updateCar)}>Update car</button>
             </form>
         </div>
     );
