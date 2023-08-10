@@ -10,10 +10,6 @@ export const getCarsThunk = () => (dispatch) => {
     carService.getCars().then(response => dispatch(carActions.setCars(response.data)))
 }
 
-// export const deleteCarThunk = (id) => (dispatch) => {
-//     dispatch(carActions.deleteCar(id))
-// }
-
 export const deleteCarThunk = (id) => (dispatch) => {
-    carService.deleteCar(id).then(response => dispatch(carActions.setCars(response.data)))
+    carService.deleteCar(id).then(() => dispatch(carActions.deleteCar(id)))
 }
