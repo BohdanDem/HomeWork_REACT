@@ -15,5 +15,5 @@ export const getCarsThunk = () => (dispatch) => {
 // }
 
 export const deleteCarThunk = (id) => (dispatch) => {
-    carService.deleteCar(id).then()
+    carService.deleteCar(id).then(response => dispatch(carActions.setCars(response.data)))
 }
