@@ -6,7 +6,6 @@ export const carActions = {
     deleteCar: (id) => ({type: CarsActionsTypes.DELETE_CAR, payload: id}),
     saveCar: (car) => ({type: CarsActionsTypes.SAVE_CAR, payload: car}),
     updateCarForm: (car) => ({type: CarsActionsTypes.UPDATE_CAR_FORM, payload: car}),
-    updateCar: (car, updateCarForm) => ({type: CarsActionsTypes.SAVE_CAR, payload: car}),
 }
 
 export const getCarsThunk = () => (dispatch) => {
@@ -26,7 +25,7 @@ export const updateCarFormThunk = (car) => (dispatch) => {
 }
 
 export const updateCarThunk = (car, updateCarForm) => (dispatch) => {
-    carService.updateCar(car, updateCarForm).then(() => dispatch(carActions.updateCar(car)))
+    carService.updateCar(car, updateCarForm).then(() => dispatch(getCarsThunk()))
 }
 
 

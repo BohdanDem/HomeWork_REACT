@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import styles from './CarStyle.module.css'
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
-import {saveCarThunk, updateCarThunk} from "../../ReduxCore/actions/carActions";
+import {saveCarThunk, updateCarFormThunk, updateCarThunk} from "../../ReduxCore/actions/carActions";
 
 const CreateCarForm = () => {
 
@@ -17,6 +17,7 @@ const CreateCarForm = () => {
 
     const updateCar = (car) => {
         dispatch(updateCarThunk(car, updateCarForm))
+        dispatch(updateCarFormThunk(null))
         reset()
     }
 

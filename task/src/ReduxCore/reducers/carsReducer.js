@@ -10,7 +10,6 @@ export const CarsActionsTypes = {
     DELETE_CAR: 'DELETE_CAR',
     SAVE_CAR: 'SAVE_CAR',
     UPDATE_CAR_FORM: 'UPDATE_CAR_FORM',
-    UPDATE_CAR: 'UPDATE_CAR'
 }
 
 const carsReducer = (state = initialState, action) => {
@@ -34,16 +33,6 @@ const carsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 updateCarForm: action.payload
-            }
-        case CarsActionsTypes.UPDATE_CAR:
-            return {
-                ...state,
-                cars: [state.cars.filter((car) => {
-                    if(car.id === state.updateCarForm.id) {
-                        car = action.payload
-                    }
-                    return car
-                })]
             }
         case CarsActionsTypes.SET_ERROR:
             return{
