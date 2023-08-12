@@ -1,7 +1,7 @@
 const initialState = {
     cars: [],
     error: '',
-    updateCarForm: []
+    updateCarForm: null
 };
 
 export const CarsActionsTypes = {
@@ -10,6 +10,7 @@ export const CarsActionsTypes = {
     DELETE_CAR: 'DELETE_CAR',
     SAVE_CAR: 'SAVE_CAR',
     UPDATE_CAR_FORM: 'UPDATE_CAR_FORM',
+    UPDATE_CAR: 'UPDATE_CAR'
 }
 
 const carsReducer = (state = initialState, action) => {
@@ -33,6 +34,16 @@ const carsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 updateCarForm: action.payload
+            }
+        case CarsActionsTypes.UPDATE_CAR:
+            return {
+                ...state,
+                cars: state.cars.map((item) => {
+                    if(item.id === state.updateCarForm.id) {
+                        item = {id: item.id, ...action.payload.car}
+                    }
+                    return item
+                })
             }
         case CarsActionsTypes.SET_ERROR:
             return{
