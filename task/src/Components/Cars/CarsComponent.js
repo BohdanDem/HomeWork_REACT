@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import CarComponent from "./CarComponent/CarComponent";
 import {carService} from "../../Services/carService";
+import {Context} from "../../App";
 
-const CarsComponent = ({addCars, setAddCars, setUpdateCar}) => {
+const CarsComponent = () => {
 
+    const {addCars} = useContext(Context);
     const [ cars, setCars ] = useState([]);
 
     useEffect(() => {
@@ -14,7 +16,7 @@ const CarsComponent = ({addCars, setAddCars, setUpdateCar}) => {
         <>
             {cars.map((car) => {
                 return (
-                    <CarComponent key={car.id} car={car} setAddCars={setAddCars} setUpdateCar={setUpdateCar}/>
+                    <CarComponent key={car.id} car={car}/>
                 );
             })}
         </>

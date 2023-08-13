@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './CarComponent.module.css'
 import {carService} from "../../../Services/carService";
+import {Context} from "../../../App";
 
-const CarComponent = ({car, setAddCars, setUpdateCar}) => {
+const CarComponent = ({car}) => {
 
     const { id, brand, price, year } = car
+    const {setAddCars, setUpdateCar} = useContext(Context);
 
     const carDelete = () => {
         carService.deleteCar(car)
-        setAddCars(prev => !prev)
+            .then(() => {
+                 setAddCars()
+            })
     }
 
     return (
