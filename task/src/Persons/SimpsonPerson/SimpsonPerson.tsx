@@ -20,5 +20,4 @@ const SimpsonPerson = (props: Simpsons) => {
     )
 }
 
-
 export default SimpsonPerson
