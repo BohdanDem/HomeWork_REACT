@@ -1,7 +1,10 @@
 import './App.css';
-import SimpsonPerson from "./Persons/SimpsonPerson/SimpsonPerson";
+import SimpsonPerson from "./Persons/SimpsonPerson/SimpsonPerson.tsx";
 
 function App() {
+
+
+
       return (
           <>
                 <SimpsonPerson

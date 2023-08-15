@@ -1,5 +1,14 @@
 import styles from "./SimpsonPerson.module.css"
-const SimpsonPerson = (props) => {
+
+interface Simpsons {
+    name: string,
+    surname: string,
+    age: string
+    info: string,
+    photo: string
+}
+
+const SimpsonPerson = (props: Simpsons) => {
     const {name, surname, age, info, photo} = props
 
     return(
