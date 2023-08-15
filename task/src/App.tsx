@@ -1,9 +1,7 @@
 import './App.css';
-import SimpsonPerson from "./Persons/SimpsonPerson/SimpsonPerson.tsx";
+import SimpsonPerson from "./Persons/SimpsonPerson/SimpsonPerson";
 
 function App() {
-
-
 
       return (
           <>
