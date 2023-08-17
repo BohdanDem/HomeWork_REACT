@@ -1,4 +1,4 @@
 export const AppRoutes = {
-    EPISODES: 'episodes',
-    CHARACTERS: 'characters'
+    EPISODES: '/episodes',
+    CHARACTERS: '/characters'
 }
