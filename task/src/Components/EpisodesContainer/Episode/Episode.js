@@ -1,9 +1,18 @@
 import React from 'react';
 import {Box, Button, Card, CardActions, CardContent, Typography} from "@mui/material";
+import {useNavigate} from "react-router-dom";
+import {AppRoutes} from "../../../Routing/AppRoutes";
 
 const Episode = ({episode}) => {
 
-    const {name, air_date, episode: episodeName} = episode
+    const navigate = useNavigate();
+    const {name, air_date, episode: episodeName, characters} = episode;
+
+    const toCharacters = () => {
+        const ids = characters.map(character => character.split('/').slice(-1)[0]).join(',');
+        // navigate(`/character`, {state: {ids}})
+        navigate(AppRoutes.CHARACTERS, {state: {ids}})
+    }
 
     return (
         <Box sx={{ width: 275, height: 300 }}>
@@ -23,7 +32,7 @@ const Episode = ({episode}) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" variant={'contained'}>Characters</Button>
+                    <Button size="small" variant={'contained'} onClick={toCharacters}>Characters</Button>
                 </CardActions>
             </Card>
         </Box>

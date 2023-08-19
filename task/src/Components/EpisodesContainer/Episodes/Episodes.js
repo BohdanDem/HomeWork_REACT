@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import Episode from "../../Episode/Episode";
+import Episode from "../Episode/Episode";
 import {useDispatch, useSelector} from "react-redux";
 import {episodeActions} from "../../../Redux/Slices/episodesSlice";
 import {useSearchParams} from "react-router-dom";
