@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import SimpsonComponent from "./components/SimpsonComponent";
 
