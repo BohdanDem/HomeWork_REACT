@@ -6,6 +6,7 @@ import {progressActions} from "./progressSlice";
 const initialState = {
     pages: 0,
     episodes: [],
+    current: null
 }
 
 const getEpisodes = createAsyncThunk(
@@ -26,13 +27,18 @@ const getEpisodes = createAsyncThunk(
 const episodesSlice = createSlice({
     name: "episodesSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        setCurrent: (state, actions) => {
+            state.current = actions.payload
+        }
+    },
     extraReducers: builder =>
         builder
             .addCase(getEpisodes.fulfilled, (state, actions) => {
                 const {info: {pages}, results} = actions.payload
                 state.pages = pages
                 state.episodes = results
+                state.current = null
             })
 })
 

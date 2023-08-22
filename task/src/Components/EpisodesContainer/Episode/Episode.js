@@ -2,21 +2,25 @@ import React from 'react';
 import {Box, Button, Card, CardActions, CardContent, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {AppRoutes} from "../../../Routing/AppRoutes";
+import {useDispatch} from "react-redux";
+import {episodeActions} from "../../../Redux/Slices/episodesSlice";
+import styles from './Episode.module.css'
 
 const Episode = ({episode}) => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const {name, air_date, episode: episodeName, characters} = episode;
 
     const toCharacters = () => {
         const ids = characters.map(character => character.split('/').slice(-1)[0]).join(',');
-        // navigate(`/character`, {state: {ids}})
+        dispatch(episodeActions.setCurrent(name))
         navigate(AppRoutes.CHARACTERS, {state: {ids}})
     }
 
     return (
-        <Box sx={{ width: 275, height: 300 }}>
-            <Card variant="outlined">
+        <Box>
+            <Card variant="outlined" className={styles.Episode}>
                 <CardContent>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                         Episode
