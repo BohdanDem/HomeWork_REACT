@@ -1,13 +1,13 @@
-import {combineReducers, createStore} from "redux";
+import {configureStore} from "@reduxjs/toolkit";
+import {charactersReducer} from "./Slices/charactersSlice";
+import {episodesReducer} from "./Slices/episodesSlice";
 
-import {episodesReducer} from "./reducers";
-import {charactersReducer} from "./reducers/charactersReducer";
-
-const rootReducer = combineReducers({
-    episodes: episodesReducer,
-    characters: charactersReducer
-});
-const store = createStore(rootReducer);
+const store = configureStore({
+    reducer: {
+        episodes: episodesReducer,
+        characters: charactersReducer
+    }
+})
 
 export {
     store

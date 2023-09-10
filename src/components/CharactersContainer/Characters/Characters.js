@@ -12,7 +12,6 @@ const Characters = () => {
     const {state: {ids}} = useLocation();
 
     useEffect(() => {
-        console.log(characters, 'empty');
         characterService.getByIds(ids).then(({data}) => {
             dispatch(charactersActions.set(data))
         })
