@@ -1,10 +1,8 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
-
-import {characterService} from "../../../services";
-import {charactersActions} from "../../../redux";
 import {Character} from "../Character/Character";
+import {charactersActions} from "../../../redux/Slices/charactersSlice";
 
 const Characters = () => {
     const dispatch = useDispatch();
@@ -12,9 +10,7 @@ const Characters = () => {
     const {state: {ids}} = useLocation();
 
     useEffect(() => {
-        characterService.getByIds(ids).then(({data}) => {
-            dispatch(charactersActions.set(data))
-        })
+        dispatch(charactersActions.getCharacters({ids}))
     }, [ids, dispatch])
 
     return (

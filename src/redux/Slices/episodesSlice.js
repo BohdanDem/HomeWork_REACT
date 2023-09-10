@@ -1,13 +1,10 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {episodesService} from "../../services";
 
-
 const initialState = {
     prevPage: null,
     nextPage: null,
     episodes: [],
-    pages: 0,
-    current: null
 }
 
 const getEpisodes = createAsyncThunk(
@@ -25,18 +22,18 @@ const getEpisodes = createAsyncThunk(
 const episodesSlice = createSlice({
     name: "episodesSlice",
     initialState,
-    reducers: {
-        setCurrent: (state, actions) => {
-            state.current = actions.payload
-        }
-    },
+    reducers: {},
     extraReducers: builder =>
         builder
             .addCase(getEpisodes.fulfilled, (state, actions) => {
-                const {info: {pages}, results} = actions.payload
-                state.pages = pages
-                state.episodes = results
-                state.current = null
+                state.episodes = actions.payload.results.map(episode => (
+                        {
+                            ...episode,
+                            characters: episode.characters.map(character => character.split('/').slice(-1)[0]).join(',')
+                        })
+                    );
+                state.prevPage = actions.payload.info.prev
+                state.nextPage = actions.payload.info.next
             })
 })
 
